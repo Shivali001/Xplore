@@ -1,0 +1,76 @@
+<% if(place!=null){ %>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/home">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><%- place.name %>></li>
+        </ol>
+    </nav>
+
+    <div class="row">
+
+        <div class="col-12 col-md-4">
+            <img src="/uploads/<%- place.image %>" class="'img-fluid sticky-top"
+                style="top: 20px; width: 300px; height: 250px;" alt="<%- place.name %>" loading="lazy">
+        </div>
+
+        <div class="col-12 col-md-8">
+            <div class="row">
+                <div class="col-12">
+                    <h1>
+                        <%- place.name %>
+                    </h1>
+
+                </div>
+
+                <div class="col-12 mb-4">
+                    <i class="bi bi-bookmark-heart"></i>
+                    <%- place.category %>
+                </div>
+                
+            </div>
+            <hr>
+
+            <div class="row pt-4">
+                <div class="col-12">
+                    <h4>Description:</h4>
+                    <%- place.description %>
+                </div>
+            </div>
+
+            <div class="row pt-4">
+                <div class="col-12">
+                    <h4>Address:</h4>
+                    <%- place.address %>
+                </div>
+            </div>
+
+            <div class="row pt-4">
+                <div class="col-12">
+                    <h4>Special Notes:</h4>
+                    <%- place.special_notes %>
+                </div>
+            </div>
+
+            <div class="row pt-4">
+                <div class="col-12">
+                    <h4>Xplorer email:</h4>
+                    <%- place.email %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <% } %>

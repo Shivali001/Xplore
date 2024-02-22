@@ -1,0 +1,23 @@
+<h1 class="pb-4">Okay, Now This can be your next outing spot. </h1>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/home">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Random Place</li>
+    </ol>
+</nav>
+
+<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+
+        
+            <a href="/place/<%=place._id %>" class="col text-center category_link">
+                <div class="category_img category_img--lg shadow">
+                    <img src="/uploads/<%=place.image %>" alt="<%=place.name %>" loading="lazy" width="230px"
+                        height="200px">
+                </div>
+                <div class="pt-1"><%=place.name %></div>
+            </a>
+
+        
+   
+</div>

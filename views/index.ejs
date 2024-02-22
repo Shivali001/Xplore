@@ -1,0 +1,286 @@
+<div class="back row flex-lg-row-reverse align-items-center g-5 py-4 mb-4">
+    <div class="col-12 col-lg-6">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <clipPath id="user-space" clipPathUnits="userSpaceOnUse">
+                    <path fill="#0F62FE"
+                        d="M42,-72.9C53.6,-66,61.6,-53.1,70,-39.9C78.3,-26.8,87.1,-13.4,86.5,-0.3C86,12.8,76.3,25.6,66.9,36.9C57.4,48.2,48.2,57.9,37.1,66C26,74.2,13,80.8,-1.8,83.9C-16.6,87.1,-33.2,86.7,-46.3,79.7C-59.4,72.6,-68.9,59,-75,44.6C-81,30.2,-83.5,15.1,-83.6,-0.1C-83.7,-15.2,-81.4,-30.4,-75.1,-44.5C-68.9,-58.5,-58.8,-71.4,-45.6,-77.4C-32.4,-83.4,-16.2,-82.5,-0.5,-81.6C15.2,-80.7,30.4,-79.8,42,-72.9Z"
+                        transform="translate(100 100)" />
+                </clipPath>
+            </defs>
+            <image width="100%" height="100%" preserveAspectRatio="xMinYMin slice" xlink:href="/img/PARIS.jpg"
+                clip-path="url(#user-space)" />
+        </svg>
+
+    </div>
+
+    <div class="col-12 col-lg-6">
+        <h1 class="display-5 fw-bold mb-3">Discover the World: Explore City Treasures! Find Your Next Adventure</h1>
+        <p class="lead">
+            Welcome to Xplore - Your Collective Atlas of Urban Marvels! Share Your Discovered Gems, Unveil Untold
+            Treasures. A Platform Where Xplorers Unite to Share, Discover, and Embrace the Wonders of Every City. So,
+            xplore the Unknown, Add Your Found Delights, and Let the World Uncover the Magic of Your City's Hidden Gems!
+        </p>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <a href="/xplore-latest" class="btn btn-primary btn-dark btn-lg px-4 me-md-2">Xplore Latest </a>
+            <a href="/xplore-random" class="btn btn-outline-secondary btn-lg px-4 me-md-2">Random place to Xplore</a>
+        </div>
+    </div>
+
+    <!-- Categories-->
+    <div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 py-4">
+        <% if(categories !='' ){ %>
+            <% categories.forEach(function(category,index){ %>
+                <a href="/categories/<%- category.name %>" class="col text-center category_link">
+                    <div class="category_img shadow">
+                        <img src="/img/<%- category.image %>" alt="<%- category.name %>" loading="lazy" width="170"
+                            height="130">
+                    </div>
+                    <div class="pt-1"><%- category.name %></div>
+                </a>
+            <% }) %>
+        <% } %>
+                        <a href="/categories" class="col text-center category_link">
+                            <div class="category_img shadow">
+                                <img src="/img/spinner.png" alt="View More" loading="lazy" width="170" height="130">
+                            </div>
+                            <div class="pt-1">View More</div>
+                        </a>
+
+    </div>
+
+    <section class="pb-4 pt-4">
+        <div class="d-flex mb-2 align-items-center">
+            <h2>
+                Latest Entries
+            </h2>
+            <a href="/xplore-latest" class="ms-auto">View More</a>
+        </div>
+
+        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+            <% if(entry !='') { %>
+                <% entry.latest.forEach(function(place,index){ %>
+                    <a href="/place/<%=place._id %>" class="col text-center category_link">
+                        <div class="category_img category_img--lg shadow">
+                            <img src="/uploads/<%=place.image %>" alt="<%=place.name %>" loading="lazy" width="230px"
+                                height="200px">
+                        </div>
+                        <div class="pt-1"><%=place.name %></div>
+                    </a>
+
+                <% }) %>
+            <% } %>
+        </div>
+
+        <div class="d-flex mb-2 align-items-center">
+            <h2>
+                Food
+            </h2>
+            <a href="/categories/Food" class="ms-auto">View More</a>
+        </div>
+
+        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+            <!--To make sure object is not empty-->
+            <% if(typeof entry.food !=='undefined' && entry.food.length>0) { %>
+                <% entry.food.forEach(function(place,index){ %>
+                    <a href="/place/<%=place._id %>" class="col text-center category_link">
+                        <div class="category_img category_img--lg shadow">
+                            <img src="/uploads/<%=place.image %>" alt="<%=place.name %>" loading="lazy" width="230px"
+                                height="200px">
+                        </div>
+                        <div class="pt-1"><%=place.name %></div>
+                    </a>
+
+                <% }) %>
+            <% } %>
+        </div>
+
+        <div class="d-flex mb-2 align-items-center">
+            <h2>
+                Historical Monuments
+            </h2>
+            <a href="/categories/Historical" class="ms-auto">View More</a>
+        </div>
+
+        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+            <% if(typeof entry.hist !=='undefined' && entry.hist.length>0) { %>
+                <% entry.hist.forEach(function(place,index){ %>
+                    <a href="/place/<%=place._id %>" class="col text-center category_link">
+                        <div class="category_img category_img--lg shadow">
+                            <img src="/uploads/<%=place.image %>" alt="<%=place.name %>" loading="lazy" width="230px"
+                                height="200px">
+                        </div>
+                        <div class="pt-1"><%=place.name %></div>
+                    </a>
+
+                <% }) %>
+            <% } %>
+        </div>
+
+        <div class="d-flex mb-2 align-items-center">
+            <h2>
+                Park
+            </h2>
+            <a href="/categories/Park" class="ms-auto">View More</a>
+        </div>
+
+        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+            <% if(typeof entry.park !=='undefined' && entry.park.length>0) { %>
+                <% entry.park.forEach(function(place,index){ %>
+                    <a href="/place/<%=place._id %>" class="col text-center category_link">
+                        <div class="category_img category_img--lg shadow">
+                            <img src="/uploads/<%=place.image %>" alt="<%=place.name %>" loading="lazy" width="230px"
+                                height="200px">
+                        </div>
+                        <div class="pt-1"><%=place.name %></div>
+                    </a>
+
+                <% }) %>
+            <% } %>
+        </div>
+
+        <div class="d-flex mb-2 align-items-center">
+            <h2>
+                Market
+            </h2>
+            <a href="/categories/Market" class="ms-auto">View More</a>
+        </div>
+
+        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+            <% if(typeof entry.market !=='undefined' && entry.market.length>0) { %>
+                <% entry.market.forEach(function(place,index){ %>
+                    <a href="/place/<%=place._id %>" class="col text-center category_link">
+                        <div class="category_img category_img--lg shadow">
+                            <img src="/uploads/<%=place.image %>" alt="<%=place.name %>" loading="lazy" width="230px"
+                                height="200px">
+                        </div>
+                        <div class="pt-1"><%=place.name %></div>
+                    </a>
+
+                <% }) %>
+            <% } %>
+        </div>
+        
+        <div class="d-flex mb-2 align-items-center">
+            <h2>
+                Museum/Art Gallery
+            </h2>
+            <a href="/categories/Museum" class="ms-auto">View More</a>
+        </div>
+
+        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+            <% if(typeof entry.museum !=='undefined' && entry.museum.length>0) { %>
+                <% entry.museum.forEach(function(place,index){ %>
+                    <a href="/place/<%=place._id %>" class="col text-center category_link">
+                        <div class="category_img category_img--lg shadow">
+                            <img src="/uploads/<%=place.image %>" alt="<%=place.name %>" loading="lazy" width="230px"
+                                height="200px">
+                        </div>
+                        <div class="pt-1"><%=place.name %></div>
+                    </a>
+
+                <% }) %>
+            <% } %>
+        </div>
+
+        <div class="d-flex mb-2 align-items-center">
+            <h2>
+                Waterfall
+            </h2>
+            <a href="/categories/Waterfall" class="ms-auto">View More</a>
+        </div>
+
+        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+            <% if(typeof entry.waterfall !=='undefined' && entry.waterfall.length>0) { %>
+                <% entry.waterfall.forEach(function(place,index){ %>
+                    <a href="/place/<%=place._id %>" class="col text-center category_link">
+                        <div class="category_img category_img--lg shadow">
+                            <img src="/uploads/<%=place.image %>" alt="<%=place.name %>" loading="lazy" width="230px"
+                                height="200px">
+                        </div>
+                        <div class="pt-1"><%=place.name %></div>
+                    </a>
+
+                <% }) %>
+            <% } %>
+        </div>
+
+        <div class="d-flex mb-2 align-items-center">
+            <h2>
+                Zoo
+            </h2>
+            <a href="/categories/Zoo" class="ms-auto">View More</a>
+        </div>
+
+        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+            <% if(typeof entry.zoo !=='undefined' && entry.zoo.length>0) { %>
+                <% entry.zoo.forEach(function(place,index){ %>
+                    <a href="/place/<%=place._id %>" class="col text-center category_link">
+                        <div class="category_img category_img--lg shadow">
+                            <img src="/uploads/<%=place.image %>" alt="<%=place.name %>" loading="lazy" width="230px"
+                                height="200px">
+                        </div>
+                        <div class="pt-1"><%=place.name %></div>
+                    </a>
+
+                <% }) %>
+            <% } %>
+        </div>
+
+        <div class="d-flex mb-2 align-items-center">
+            <h2>
+                Stadium
+            </h2>
+            <a href="/categories/Stadium" class="ms-auto">View More</a>
+        </div>
+
+        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+            <% if(typeof entry.stadium !=='undefined' && entry.stadium.length>0) { %>
+                <% entry.stadium.forEach(function(place,index){ %>
+                    <a href="/place/<%=place._id %>" class="col text-center category_link">
+                        <div class="category_img category_img--lg shadow">
+                            <img src="/uploads/<%=place.image %>" alt="<%=place.name %>" loading="lazy" width="230px"
+                                height="200px">
+                        </div>
+                        <div class="pt-1"><%=place.name %></div>
+                    </a>
+
+                <% }) %>
+            <% } %>
+        </div>
+
+        <div class="d-flex mb-2 align-items-center">
+            <h2>
+                Games
+            </h2>
+            <a href="/categories/Games" class="ms-auto">View More</a>
+        </div>
+
+        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+            <% if(typeof entry.games !=='undefined' && entry.games.length>0) { %>
+                <% entry.games.forEach(function(place,index){ %>
+                    <a href="/place/<%=place._id %>" class="col text-center category_link">
+                        <div class="category_img category_img--lg shadow">
+                            <img src="/uploads/<%=place.image %>" alt="<%=place.name %>" loading="lazy" width="230px"
+                                height="200px">
+                        </div>
+                        <div class="pt-1"><%=place.name %></div>
+                    </a>
+
+                <% }) %>
+            <% } %>
+        </div>
+    </section>
+
+    <section class="px-4 py-5 my-5 text-center">
+        <h2 class="display-5 fw-bold">Found a Cool Spot? Share It Here for Free! </h2>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">Let Others Xplore Your Awesome Places and Inspire the Xplorer in Everyone.</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <a href="/submit-entry" class="btn btn-primary btn-dark btn-lg">Share Now</a>
+            </div>
+        </div>
+    </section>
+
+</div>
